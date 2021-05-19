@@ -1,0 +1,17 @@
+version: '3'
+services:
+    apollo-events-service:
+        image: 'gopuffp.azurecr.io/images/apollo-events-service:${APOLLO_EVENTS_SERVICE_TAG}'
+        environment:
+            - APOLLO_EVENTS_SERVICE_TAG=${APOLLO_EVENTS_SERVICE_TAG}
+            - NODE_AUTH_TOKEN=${NODE_AUTH_TOKEN}
+            - EH_DOMAIN_EVENT_CUSTOMER_URL_WRITE=${EH_DOMAIN_EVENT_CUSTOMER_URL_WRITE}
+            - EH_DOMAIN_EVENT_CUSTOMER_URL_READ=${EH_DOMAIN_EVENT_CUSTOMER_URL_READ}
+            - SC_DOMAIN_EVENT_CUSTOMER_URL=${SC_DOMAIN_EVENT_CUSTOMER_URL}
+            - EH_DOMAIN_EVENT_CUSTOMER_FAILOVER_URL_WRITE=${EH_DOMAIN_EVENT_CUSTOMER_FAILOVER_URL_WRITE}
+    apollo-decision-service:
+        image: 'gopuffp.azurecr.io/images/apollo-decision-service:${APOLLO_DECISION_SERVICE_TAG}'
+        enviroment:
+            - NODE_AUTH_TOKEN=${NODE_AUTH_TOKEN}
+    
+
